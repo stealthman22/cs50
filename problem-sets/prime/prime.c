@@ -31,19 +31,25 @@ int main(void)
 bool prime(int number)
 {
     // TODO
-    int prev_number;
-    for (int i = 2; i <= number; i++ )
+    if(number < 2)
     {
-        if (number % i == 0)
+        return 0;
+    }
+
+    else {
+        // The trick is to cut out any number below n/2 from the loop
+        //  this way you only have to check for the modulus of numbers above half the number
+        // these numenrs will effectively be in the loop.
+        // I'd still need to consolidate this into memory properly.
+        int half = number / 2;
+
+        for (int i = 2; i < half; i++)
         {
-            return false;
-        }
-        if (number == 2) {
-            return true;
-        }
-        else {
-            return true;
+            if (number % i == 0)
+            {
+                return 0;
+            }
         }
     }
-    return 0;
+    return 1;
 }
